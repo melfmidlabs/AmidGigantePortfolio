@@ -5,7 +5,7 @@
 
             <MudItem xs="12" md="6">
 
-            <MudPaper Elevation="8" Class="profile-card" style="@($"--border-color:{BorderColor}")">
+            <MudPaper Elevation="8" Class="profile-card" style="@($"--border-color:{GradientService.CurrentTheme.Color}")">
 
                 
                     <MudImage Src="images/profile.jpg"
@@ -21,7 +21,7 @@
 
                 <MudText Typo="Typo.h1" Class="hero-title">
                     Software
-                <span class=@($"gradient-text {GradientService.CurrentGradient}")>
+                <span class=@($"gradient-text") style="@($"--text-bg:{GradientService.CurrentTheme.Background}")">
                         Developer
                     </span>
                 </MudText>
@@ -36,19 +36,27 @@
 
                 <MudText Typo="Typo.body1" Class="mt-4 discription">
                     Developing modern web applications with .NET and Blazor,
-                    while building innovative embedded and IoT solutions using ESP32.
+                    while building innovative embedded and IoT solutions.
                 </MudText>
 
                 <MudStack Row="true" Spacing="2" Class="mt-6">
 
-                <MudButton Class="hero-btn" Style="@($"--hero-color:{PrimaryColor}; --hero-color2:{SecondaryColor};")" EndIcon="@Icons.Material.Outlined.ArrowDownward" OnClick="@(() => Go("portfolio"))">
+                <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.ArrowDownward" OnClick="@(() => Go("portfolio"))">
                         <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">See my work</MudText>
                     </MudButton>
 
-                <MudButton Class="hero-btn" Style="@($"--hero-color:{PrimaryColor}; --hero-color2:{SecondaryColor};")" EndIcon="@Icons.Material.Outlined.Email" OnClick="@(() => Go("contact"))">
+                <MudButton Class="hero-btn" Style="@($"--hero-color:{GradientService.CurrentTheme.Color}; --hero-color2:{GradientService.CurrentTheme.Secondary};")" EndIcon="@Icons.Material.Outlined.Email" OnClick="@(() => Go("contact"))">
                         <MudText Typo="Typo.body1" Style="color: oklch(.928 .006 264.531);">Contact</MudText>
                     </MudButton>
 
+                </MudStack>
+
+                <MudStack Row Spacing="1" class="mt-4">
+                    <MudIconButton Href="@github" Target="_blank" Icon="@Icons.Custom.Brands.GitHub" aria-label="github" />
+                    <MudIconButton Href="@facebook" Target="_blank" Icon="@Icons.Custom.Brands.Facebook" aria-label="facebook" />
+                    <MudIconButton Href="@tiktok" Target="_blank" Icon="@Icons.Custom.Brands.TikTok" aria-label="tiktok" />
+                    <MudIconButton Href="@youtube" Target="_blank" Icon="@Icons.Custom.Brands.YouTube" aria-label="youtube" />
+                    <MudIconButton Href="@gmail" Target="_blank" Icon="@Icons.Custom.Brands.Gmail" aria-label="gmail" />
                 </MudStack>
 
             </MudItem>
@@ -59,13 +67,13 @@
 
 <style>
     .hero-title {
-        font-size: clamp(4rem, 8vw, 7rem);
+        font-size: 4.5rem;
         font-weight: 800;
-        line-height: 1;
+        line-height: .95,1;
     }
 
     .gradient-text {
-       
+        background-image: var(--text-bg);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -97,11 +105,20 @@
         font-weight: 300;
     }
 
-    .typed-cursor {
+   /*  .typed-cursor {
         color: #8B5CF6;
+        font-weight: bold;
+    } */
+    :root {
+        --theme-primary: #8B5CF6;
+    }
+
+    .typed-cursor {
+        color: var(--theme-primary);
         font-weight: bold;
     }
 
+    /**/
     .discription{
         font-size: 1.125rem;
        color: oklch(.551 .027 264.364);
@@ -232,36 +249,50 @@
 </style>
 
 @code {
+    private string github = "https://github.com/melfmid21";
+    private string facebook = "https://www.facebook.com/profile.php?id=100063923315663";
+    private string tiktok = "https://www.tiktok.com/@melfmid21?is_from_webapp=1&sender_device=pc";
+    private string youtube = "https://www.youtube.com/@melfmid21";
+    private string gmail = "mailto:jrgiganteamid@gmail.com";
+    // private string BorderColor =>
+    // GradientService.CurrentGradient switch
+    // {
+    //     "gradient-1" => "#8b5cf6",
+    //     "gradient-2" => "#22c55e",
+    //     "gradient-3" => "#ec4899",
+    //     "gradient-4" => "#f59e0b",
+    //     _ => "#8b5cf6"
+    // };
 
-    private string BorderColor =>
-    GradientService.CurrentGradient switch
-    {
-        "gradient-1" => "#8b5cf6",
-        "gradient-2" => "#22c55e",
-        "gradient-3" => "#ec4899",
-        "gradient-4" => "#f59e0b",
-        _ => "#8b5cf6"
-    };
+    // private string PrimaryColor =>
+    // GradientService.CurrentGradient switch
+    // {
+    //     "gradient-1" => "#3B82F6",
+    //     "gradient-2" => "#22C55E",
+    //     "gradient-3" => "#EC4899",
+    //     "gradient-4" => "#F59E0B",
+    //     _ => "#3B82F6"
+    // };
 
-    private string PrimaryColor =>
-    GradientService.CurrentGradient switch
-    {
-        "gradient-1" => "#3B82F6",
-        "gradient-2" => "#22C55E",
-        "gradient-3" => "#EC4899",
-        "gradient-4" => "#F59E0B",
-        _ => "#3B82F6"
-    };
+    // private string SecondaryColor =>
+    //     GradientService.CurrentGradient switch
+    //     {
+    //         "gradient-1" => "#8B5CF6",
+    //         "gradient-2" => "#14B8A6",
+    //         "gradient-3" => "#F43F5E",
+    //         "gradient-4" => "#EF4444",
+    //         _ => "#8B5CF6"
+    //     };
 
-    private string SecondaryColor =>
-        GradientService.CurrentGradient switch
-        {
-            "gradient-1" => "#8B5CF6",
-            "gradient-2" => "#14B8A6",
-            "gradient-3" => "#F43F5E",
-            "gradient-4" => "#EF4444",
-            _ => "#8B5CF6"
-        };
+    // private string CursorColor =>
+    // GradientService.CurrentGradient switch
+    // {
+    //     "gradient-1" => "#8B5CF6",
+    //     "gradient-2" => "#22C55E",
+    //     "gradient-3" => "#EC4899",
+    //     "gradient-4" => "#F59E0B",
+    //     _ => "#8B5CF6"
+    // };
 
     protected override void OnInitialized()
     {
@@ -273,6 +304,7 @@
         if (firstRender)
         {
             await JS.InvokeVoidAsync("initializeTyping");
+            // await JS.InvokeVoidAsync("setThemeColor", CursorColor);
         }
     }
 
@@ -281,9 +313,11 @@
         await NavigationService.ScrollTo(id);
     }
 
-    private void Refresh()
+    private async void Refresh()
     {
-        InvokeAsync(StateHasChanged);
+        // await JS.InvokeVoidAsync("setThemeColor", CursorColor);
+
+        await InvokeAsync(StateHasChanged);
     }
 
     public void Dispose()

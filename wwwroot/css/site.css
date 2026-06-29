@@ -9,6 +9,7 @@
 }*/
 
 .gradient-text-title {
+    background: var(--gradient-text-title-bg);
     font-weight: 700 !important;
     font-size: clamp(3rem, 5vw, 5rem) !important;
     background-size: 200% auto;
@@ -106,25 +107,7 @@
 
 
 
-.nav-links {
-    display: flex;
-    gap: 1rem;
-}
 
-.active-nav {
-    position: relative;
-    color: #8B5CF6 !important;
-}
-
-    .active-nav::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 100%;
-        height: 2px;
-        background: #8B5CF6;
-    }
 
 
 

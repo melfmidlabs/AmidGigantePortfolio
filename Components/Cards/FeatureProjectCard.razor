@@ -1,0 +1,232 @@
+﻿@implements IDisposable
+
+<MudPaper Class="featured-project mb-6" style="@($"--featured-project-shadow:{GradientService.CurrentTheme.ShadowRgba}")" data-aos="fade-up"
+          data-aos-duration="1000">
+
+    <MudGrid Spacing="4">
+
+        <!-- LEFT -->
+        <MudItem xs="12" lg="7">
+
+            <div class="featured-image-wrapper">
+
+
+                <MudButton Class="featured-chip rounded-lg" Variant="Variant.Filled" Color="Color.Surface"  StartIcon="@Icons.Material.Filled.Star">Featured</MudButton>
+
+                <MudImage Src="images/projects/portfolio-hero.png"
+                          Class="featured-image" />
+
+            </div>
+
+        </MudItem>
+
+        <!-- RIGHT -->
+
+        <MudItem xs="12" lg="5">
+
+            <MudStack Class="featured-content">
+
+                <MudStack Row AlignItems="AlignItems.Center">
+
+                    <MudText Class="featured-number">
+                        01
+                    </MudText>
+
+                    <MudDivider Vertical="false"
+                                Class="featured-line" />
+
+                    <MudText Class="featured-label">
+                        FEATURED WORK
+                    </MudText>
+
+                </MudStack>
+
+                <MudText Typo="Typo.h2"
+                         Class="featured-title">
+
+                   Amid's
+                    <br />
+                   Portfolio
+
+                </MudText>
+
+                <MudText Class="featured-description">
+
+                    A modern portfolio showcasing my projects, technical skills, certifications, and professional experience. Designed to reflect my passion for software development and creating impactful digital experiences.
+                </MudText>
+
+                <MudStack Row
+                          Wrap="Wrap.Wrap"
+                          Spacing="1">
+
+                    <MudChip T="string" Variant="Variant.Outlined">
+                        <i class="devicon-csharp-plain colored me-2" style="font-size:24px;"></i>
+                        C#
+                    </MudChip>
+
+                    <MudChip T="string" Variant="Variant.Outlined">
+                        <i class="devicon-blazor-original colored me-2" style="font-size:24px;"></i>
+                        Blazor
+                    </MudChip>
+
+                    <MudChip T="string" Variant="Variant.Outlined">
+                        <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"
+                                 Class="me-2" />
+                        MudBlazor
+                    </MudChip>
+
+
+                </MudStack>
+
+                <MudStack Row
+                          Justify="Justify.SpaceBetween"
+                          AlignItems="AlignItems.Center">
+
+                  @*   <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               EndIcon="@Icons.Material.Filled.OpenInNew" class="rounded-lg">
+
+                        <MudText Typo="Typo.body1">Visit Live</MudText>
+
+                    </MudButton> *@
+                    <MudLink 
+                             Class="project-link">
+
+                        Watch Demo
+
+                        <MudIcon Icon="@Icons.Material.Filled.OpenInNew"
+                                 Size="Size.Small" />
+
+                    </MudLink>
+
+                    <MudText Class="view-link">
+                        CLICK TO VIEW →
+                    </MudText>
+
+                </MudStack>
+
+            </MudStack>
+
+        </MudItem>
+
+    </MudGrid>
+
+</MudPaper>
+
+<style>
+    .featured-project {
+        background: rgba(17, 24, 39, 0.50);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: .75rem;
+        padding: 32px;
+        overflow: hidden;
+        transition: .35s;
+    }
+
+        .featured-project:hover {
+           /*  background: color-mix( in srgb, var(--featured-project-shadow) 12%, transparent ); */
+            border: 1px solid var(--featured-project-shadow);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px color-mix(in srgb, var(--featured-project-shadow) 55%, transparent), 0 0 45px color-mix(in srgb, var(--featured-project-shadow) 35%, transparent), 0 0 70px color-mix(in srgb, var(--featured-project-shadow) 20%, transparent);
+        }
+
+        .project-link {
+        color: #60a5fa;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+    }
+
+        .project-link:hover {
+            color: #93c5fd;
+        }
+
+    /******************/
+
+    .featured-image-wrapper {
+        position: relative;
+    }
+
+    .featured-chip {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        z-index: 2;
+        font-weight: 500;
+    }
+
+    .featured-image {
+        width: 100%;
+        border-radius: .5rem;
+        transition: .4s;
+    }
+
+    .featured-project:hover .featured-image {
+        transform: scale(1.03);
+    }
+
+    /******************/
+
+    .featured-content {
+        height: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .featured-number {
+        font-size: 4rem;
+        font-weight: 800;
+        opacity: .18;
+    }
+
+    .featured-line {
+        flex: 1;
+        margin-inline: 16px;
+    }
+
+    .featured-label {
+        letter-spacing: 4px;
+        font-size: .8rem;
+        opacity: .6;
+    }
+
+    .featured-title {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1;
+        margin-top: 24px;
+    }
+
+    .featured-description {
+        margin-top: 24px;
+        color: #B4B4B4;
+        font-size: 1.15rem;
+        line-height: 2;
+    }
+
+    .view-link {
+        color: #888 !important;
+        letter-spacing: 4px;
+        text-decoration: none;
+    }
+</style>
+
+    @code{
+    protected override void OnInitialized()
+    {
+        GradientService.OnChange += Refresh;
+    }
+
+    private void Refresh()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+
+    public void Dispose()
+    {
+        GradientService.OnChange -= Refresh;
+    }
+    }

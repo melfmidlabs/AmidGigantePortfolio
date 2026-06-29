@@ -6,7 +6,7 @@
              data-aos-duration="600">
             <MudText Typo="Typo.h2"
                      Align="Align.Center"
-                     Class=@($"gradient-text-title mb-6 {GradientService.CurrentGradient}")>
+                     Class=@($"gradient-text-title mb-6") style="@($"--gradient-text-title-bg:{GradientService.CurrentTheme.Background}")">
                 About Me
             </MudText>
         </MudStack>
@@ -38,6 +38,7 @@
 
             <MudButton Variant="Variant.Text"
                        Class="cv-button"
+                       Style="@($"--cv-button-bg:{GradientService.CurrentTheme.Background}; --cv-button-shadow:{GradientService.CurrentTheme.Shadow};")"
                        Href="documents/AmidGiganteJr_Resume.pdf"
                        Target="_blank" data-aos="fade-up"
                        data-aos-duration="800">
@@ -46,10 +47,11 @@
 
             </MudButton>
 
-            <MudButton Href="#Portfolio"
+            <MudButton OnClick="@(() => Go("portfolio"))"
                        StartIcon="@Icons.Material.Filled.Code"
                        Variant="Variant.Outlined"
                        Class="projects-button"
+                       Style="@($"--project-button-color:{GradientService.CurrentTheme.Color}; --project-button-shadow:{GradientService.CurrentTheme.Shadow};")"
                        data-aos="fade-up"
                        data-aos-duration="800">
 
@@ -64,12 +66,11 @@
 
             <MudItem xs="12" sm="4">
                 <!--TOTAL PROJECTS-->
-                <MudPaper Class="stats-card"
+                <MudPaper Class="stats-card" Style="@($"--stats-card-shadow:{GradientService.CurrentTheme.ShadowRgba}")"
                           Elevation="0"
                           data-aos="fade-right"
                           data-aos-duration="1300">
 
-                    <div class="stats-gradient"></div>
 
                     <div class="stats-content">
 
@@ -82,11 +83,11 @@
 
                             </div>
 
-                            <MudText Typo="Typo.h3"
+                            <MudText Typo="Typo.h4"
                                      Class="stats-number"
                                      data-aos="fade-up-left"
                                      data-aos-duration="1500">
-                                5+
+                                @totalProjects
                             </MudText>
 
                         </div>
@@ -118,12 +119,12 @@
 
             <MudItem xs="12" sm="4">
                 <!--YEARS OF CODING-->
-                <MudPaper Class="stats-card"
+                <MudPaper Class="stats-card" Style="@($"--stats-card-shadow:{GradientService.CurrentTheme.ShadowRgba}")"
                           Elevation="0"
                           data-aos="fade-up"
                           data-aos-duration="1300">
 
-                    <div class="stats-gradient"></div>
+                    
 
                     <div class="stats-content">
 
@@ -136,11 +137,11 @@
 
                             </div>
 
-                            <MudText Typo="Typo.h3"
+                            <MudText Typo="Typo.h4"
                                      Class="stats-number"
                                      data-aos="fade-up-left"
                                      data-aos-duration="1500">
-                                2+
+                                @yearsOfCoding
                             </MudText>
 
                         </div>
@@ -172,12 +173,12 @@
 
             <MudItem xs="12" sm="4">
                 <!--TECH STACK-->
-                <MudPaper Class="stats-card"
+                <MudPaper Class="stats-card" Style="@($"--stats-card-shadow:{GradientService.CurrentTheme.ShadowRgba}")"
                           Elevation="0"
                           data-aos="fade-left"
                           data-aos-duration="1300">
 
-                    <div class="stats-gradient"></div>
+                    
 
                     <div class="stats-content">
 
@@ -190,11 +191,11 @@
 
                             </div>
 
-                            <MudText Typo="Typo.h3"
+                            <MudText Typo="Typo.h4"
                                      Class="stats-number"
                                      data-aos="fade-up-left"
                                      data-aos-duration="1500">
-                               10+
+                               @techStacks
                             </MudText>
 
                         </div>
@@ -328,15 +329,16 @@
         border-radius: 24px;
         padding: 1.5rem;
         height: 100%;
-        transition: all .3s ease;
+        transition: transform .35s ease, box-shadow .35s ease;
+        transform-origin: center;
     }
 
         .stats-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(99,102,241,.20);
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 20px 40px var(--stats-card-shadow);
         }
 
-    .stats-gradient {
+/*     .stats-gradient {
         position: absolute;
         inset: 0;
         background: linear-gradient( 135deg, rgba(99,102,241,.20), rgba(168,85,247,.20) );
@@ -346,7 +348,7 @@
 
     .stats-card:hover .stats-gradient {
         opacity: .20;
-    }
+    } */
 
     .stats-content {
         position: relative;
@@ -372,11 +374,11 @@
     }
 
     .stats-card:hover .stats-icon {
-        transform: rotate(6deg);
+        transform: rotate(8deg);
     }
 
     .stats-number {
-        font-size: 3rem;
+        font-family: 'DM Mono', monospace !important;
         font-weight: 700;
     }
 
@@ -405,19 +407,19 @@
 
     /**/
     .cv-button {
-        background: linear-gradient( 90deg, #6366f1, #a855f7 ) !important;
+        background: var(--cv-button-bg) !important;
         color: white !important;
         font-weight: 600;
         border-radius: 12px;
         padding: 12px 24px;
         transition: all .3s ease;
-        box-shadow: 0 10px 20px rgba(99,102,241,.25);
+        box-shadow: 0 10px 25px var(--cv-button-shadow);
         animation: bounce-slow 3s infinite;
     }
 
         .cv-button:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(168,85,247,.35);
+            box-shadow: 0 15px 35px color-mix(in srgb, var(--cv-button-shadow) 55%, transparent), 0 0 45px color-mix(in srgb, var(--cv-button-shadow) 35%, transparent), 0 0 70px color-mix(in srgb, var(--cv-button-shadow) 20%, transparent);
         }
     @@keyframes bounce-slow {
         0%, 100% {
@@ -430,8 +432,8 @@
     }
     /**/
     .projects-button {
-        color: #a855f7 !important;
-        border: 1px solid rgba(168, 85, 247, 0.5) !important;
+        color: var(--project-button-color) !important;
+        border: 1px solid var(--project-button-color);
         border-radius: 12px;
         padding: 12px 24px;
         font-weight: 600;
@@ -440,22 +442,43 @@
         animation-delay: .2s;
     }
 
+
         .projects-button:hover {
             transform: translateY(-3px) scale(1.05);
-            background: rgba(168, 85, 247, 0.1);
-            border-color: #a855f7 !important;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+            background: color-mix( in srgb, var(--project-button-color) 12%, transparent );
+            border-color: var(--project-button-color) !important;
+            box-shadow: 0 15px 35px color-mix(in srgb, var(--project-button-shadow) 55%, transparent), 0 0 45px color-mix(in srgb, var(--project-button-shadow) 35%, transparent), 0 0 70px color-mix(in srgb, var(--project-button-shadow) 20%, transparent);
         }
 </style>
 
 @code {
+
+    //     private string ButtonColor =>
+    // GradientService.CurrentGradient switch
+    // {
+    //     "gradient-1" => "linear-gradient( 90deg, #6366f1, #a855f7 )",
+    //     "gradient-2" => "linear-gradient( 90deg, #22c55e, #14b8a6 )",
+    //     "gradient-3" => "linear-gradient( 90deg, #ff4d6d, #ec4899 )",
+    //     "gradient-4" => "linear-gradient( 90deg, #ff7b00, #ef4444 )",
+    //     _ => "linear-gradient( 90deg, #6366f1, #a855f7 )"
+    // };
+    private string totalProjects = "10+";
+    private string yearsOfCoding = "3+";
+    private string techStacks = "10+";
+
     protected override void OnInitialized()
     {
         GradientService.OnChange += Refresh;
     }
+
     private void Refresh()
     {
         InvokeAsync(StateHasChanged);
+    }
+
+    private async Task Go(string id)
+    {
+        await NavigationService.ScrollTo(id);
     }
 
     public void Dispose()

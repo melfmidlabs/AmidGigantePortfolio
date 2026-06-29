@@ -1,62 +1,127 @@
-﻿<MudContainer MaxWidth="MaxWidth.Small" Class="py-12">
+﻿@implements IDisposable
 
-    <MudText Typo="Typo.h3" GutterBottom="true">
-        Contact Me
-    </MudText>
+<MudContainer MaxWidth="MaxWidth.Medium" Class="" >
+    <MudStack AlignItems="AlignItems.Center" Spacing=0 Style="padding-left:10%; padding-right:10%;">
+        <MudStack Class="mb-2" AlignItems="AlignItems.Center" Spacing="1" data-aos="fade-down" data-aos-duration="1000">
+            <MudText Typo="Typo.h2"
+                     Align="Align.Center"
+                     Class=@($"gradient-text-title") style="@($"--gradient-text-title-bg:{GradientService.CurrentTheme.Background}")">
+                Contact Me
+            </MudText>
+          
+        </MudStack>
 
-    <MudText Typo="Typo.body1" Class="mb-6">
-        Feel free to reach out for collaboration, job opportunities, or projects.
-    </MudText>
+        <MudText Typo="Typo.body1"
+                 Align="Align.Center"
+                 Class="contact-subtitle mb-7" data-aos="fade-up" data-aos-duration="1100">
+                 Open to job opportunitites, freelance, side projects and collaboration.
+        </MudText>
 
-    <MudPaper Class="pa-6">
+        <MudStack Row Spacing="3" AlignItems="AlignItems.Center" class="mb-2" data-aos="fade-up" data-aos-duration="1100">
 
-        <MudGrid>
+            <MudButton Variant="Variant.Filled" class="contact-button-mail rounded-lg" style="@($"--contact-button-mail-color:{GradientService.CurrentTheme.Color}")"
+                       StartIcon="@Icons.Custom.Brands.Gmail" aria-label="gmail"
+                       Href="@gmail">
+                Email Me
+            </MudButton>
 
-            <MudItem xs="12">
+            <MudButton Variant="Variant.Outlined" class="contact-button rounded-lg"
+                       StartIcon="@Icons.Custom.Brands.Facebook" aria-label="facebook"
+                       Href="@facebook"
+                       Target="_blank">
+                Facebook
+            </MudButton>
 
-                <MudPaper Class="pa-6 text-center">
+            <MudButton Variant="Variant.Outlined" class="contact-button rounded-lg"
+                       StartIcon="@Icons.Custom.Brands.TikTok" aria-label="tiktok"
+                       Href="@tiktok"
+                       Target="_blank">
+                Tiktok
+            </MudButton>
 
-                    <MudText Typo="Typo.h5">Let's Work Together</MudText>
+            <MudButton Variant="Variant.Outlined" class="contact-button rounded-lg"
+                       StartIcon="@Icons.Custom.Brands.LinkedIn" aria-label="linkedIn"
+                       Href="@linkedIn"
+                       Target="_blank">
+                LinkedIn
+            </MudButton>
 
-                    <MudText Typo="Typo.body2" Class="mt-2">
-                        I'm open to job opportunities, freelance work, and collaborations.
-                    </MudText>
+        </MudStack>
+        
+        <MudDivider class="mt-8 mb-6" />
+        <MudText Typo="Typo.caption" class="caption-title">
+            © 2026 Amid Gigante Jr. All Rights Reserved.
+        </MudText>
+    </MudStack>
 
-                </MudPaper>
 
-            </MudItem>
-
-            <MudItem xs="12" Class="mt-4">
-
-                <MudStack Spacing="2" AlignItems="AlignItems.Center">
-
-                    <MudButton Variant="Variant.Filled"
-                               Color="Color.Primary"
-                               StartIcon="@Icons.Material.Filled.Email"
-                               Href="mailto:your.email@gmail.com">
-                        Email Me
-                    </MudButton>
-
-                    <MudButton Variant="Variant.Outlined"
-                               StartIcon="@Icons.Material.Filled.Code"
-                               Href="https://github.com/your-username"
-                               Target="_blank">
-                        GitHub
-                    </MudButton>
-
-                    <MudButton Variant="Variant.Outlined"
-                               StartIcon="@Icons.Material.Filled.Business"
-                               Href="https://linkedin.com/in/your-profile"
-                               Target="_blank">
-                        LinkedIn
-                    </MudButton>
-
-                </MudStack>
-
-            </MudItem>
-
-        </MudGrid>
-
-    </MudPaper>
-
+    
 </MudContainer>
+
+<style>
+    .contact-subtitle {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: rgba(255,255,255,.75);
+        text-align: center;
+    }
+    .caption-title{
+        color: rgba(255,255,255,.45);
+        margin-bottom:10%;
+    }
+
+    .contact-button-mail{
+        background: linear-gradient( 135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.90) );
+        border: 1px solid var(--contact-button-mail-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .contact-button-mail:hover {
+        transform: translateY(-3px) scale(1.05);
+            background: color-mix( in srgb, var(--contact-button-mail-color) 12%, transparent );
+            border-color: var(--contact-button-mail-color) !important;
+            box-shadow: 0 15px 35px color-mix(in srgb, var(--contact-button-mail-color) 55%, transparent), 0 0 45px color-mix(in srgb, var(--contact-button-mail-color) 35%, transparent), 0 0 70px color-mix(in srgb, var(--contact-button-mail-color) 20%, transparent);
+    }
+
+    .contact-button{
+        background: linear-gradient( 135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.90) );
+        border: 1px solid rgba(255,255,255,.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .contact-button:hover, .contact-button:focus-visible {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @@media (prefers-reduced-motion: no-preference) {
+        .contact-button:hover, .contact-button:focus-visible {
+            transform: scale(1.1);
+        }
+    }
+</style>
+@code{
+    private string github = "https://github.com/melfmid21";
+    private string facebook = "https://www.facebook.com/profile.php?id=100063923315663";
+    private string tiktok = "https://www.tiktok.com/@melfmid21?is_from_webapp=1&sender_device=pc";
+    private string youtube = "https://www.youtube.com/@melfmid21";
+    private string gmail = "mailto:jrgiganteamid@gmail.com";
+    private string linkedIn = "";
+
+    protected override void OnInitialized()
+    {
+        GradientService.OnChange += Refresh;
+    }
+
+    private void Refresh()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+
+    public void Dispose()
+    {
+        GradientService.OnChange -= Refresh;
+    }
+        }

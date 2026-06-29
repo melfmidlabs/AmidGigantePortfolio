@@ -72,7 +72,7 @@ window.observeSections = (dotNetHelper) => {
 
         },
         {
-            threshold: 0.6
+            threshold: 0.5
         }
     );
 
@@ -98,4 +98,8 @@ window.initializeTyping = () => {
         showCursor: true,
         cursorChar: '|'
     });
+};
+
+window.setThemeColor = (color) => {
+    document.documentElement.style.setProperty("--theme-primary", color);
 };
