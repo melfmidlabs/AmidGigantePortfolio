@@ -63,11 +63,42 @@ The website was built using **Blazor WebAssembly** and follows a modern UI/UX de
 
 # 📸 Preview
 
-![Portfolio Hero](docs/hero.png)
+Take a quick look at the modern and responsive design of my personal portfolio, built with **Blazor WebAssembly** and **MudBlazor**.
 
-## 💼 Projects
+![Portfolio Preview](docs/hero.png)
 
-![Projects](docs/projects.png)
+---
+
+# 👨‍💻 About Me
+
+The **About Me** section introduces who I am, my passion for software development, and the technologies I enjoy working with. It highlights my journey, experience, and commitment to continuously learning and building impactful applications.
+
+![About Me](docs/about.png)
+
+---
+
+# 💼 Portfolio Showcase
+
+The **Portfolio Showcase** features some of my notable projects, demonstrating my experience in web development, embedded systems, and IoT solutions. Each project includes a brief overview, technologies used, and key accomplishments.
+
+Featured projects include:
+
+- ♻️ Reverse Vending Machine (IoT & Embedded System)
+- 🌐 Personal Portfolio Website
+- 📊 Admin Dashboard Applications
+- 🔧 Full-Stack .NET Projects
+
+![Portfolio Showcase](docs/project.png)
+
+---
+
+# 📞 Contact
+
+The **Contact** section provides an easy way for recruiters, clients, and fellow developers to get in touch with me. It includes links to my professional profiles and communication channels.
+
+Feel free to connect with me for collaborations, opportunities, or simply to say hello!
+
+![Contact](docs/contact.png)
 
 # 📂 Project Structure
 
