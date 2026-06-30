@@ -63,19 +63,11 @@ The website was built using **Blazor WebAssembly** and follows a modern UI/UX de
 
 # 📸 Preview
 
-> Replace this image with a screenshot of your homepage.
+![Portfolio Hero](docs/hero.png)
 
-```text
-docs/preview.png
-```
+## 💼 Projects
 
-Example:
-
-```markdown
-![Portfolio Preview](docs/preview.png)
-```
-
----
+![Projects](docs/projects.png)
 
 # 📂 Project Structure
 
@@ -131,7 +123,7 @@ dotnet run
 # 📬 Connect With Me
 
 - 💼 LinkedIn *(Add your profile)*
-- 📧 Email *(Add your email)*
+- 📧 Email jrgiganteamid@gmail.com
 - 🌐 Portfolio
   https://melfmidlabs.github.io/AmidGigantePortfolio/
 
@@ -143,7 +135,6 @@ dotnet run
 - Project Filtering
 - Light/Dark Theme Toggle
 - Multilingual Support
-- Downloadable Resume
 - Interactive Timeline
 
 ---
