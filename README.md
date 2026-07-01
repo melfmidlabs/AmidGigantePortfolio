@@ -8,7 +8,7 @@ A passionate software developer focused on building modern web applications, emb
 
 🌐 **Live Portfolio**
 
-### https://melfmidlabs.github.io/AmidGigantePortfolio/
+### https://melfmidlabs.github.io/amidgiganteportfolio/
 
 ---
 
@@ -103,7 +103,7 @@ Feel free to connect with me for collaborations, opportunities, or simply to say
 # 📂 Project Structure
 
 ```text
-AmidGigantePortfolio
+amidgiganteportfolio
 │
 ├── Components
 ├── Layout
@@ -122,13 +122,13 @@ AmidGigantePortfolio
 Clone the repository
 
 ```bash
-git clone https://github.com/melfmidlabs/AmidGigantePortfolio.git
+git clone https://github.com/melfmidlabs/amidgiganteportfolio.git
 ```
 
 Navigate into the project
 
 ```bash
-cd AmidGigantePortfolio
+cd amidgiganteportfolio
 ```
 
 Restore packages
@@ -147,7 +147,7 @@ dotnet run
 
 # 🌍 Live Website
 
-## https://melfmidlabs.github.io/AmidGigantePortfolio/
+## https://melfmidlabs.github.io/amidgiganteportfolio/
 
 ---
 
@@ -156,7 +156,7 @@ dotnet run
 - 💼 LinkedIn *(To be added soon)*
 - 📧 Email jrgiganteamid@gmail.com
 - 🌐 Portfolio
-  https://melfmidlabs.github.io/AmidGigantePortfolio/
+  https://melfmidlabs.github.io/amidgiganteportfolio/
 
 ---
 
