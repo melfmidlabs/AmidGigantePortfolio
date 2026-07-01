@@ -37,10 +37,16 @@
 
         <MudStack Class="mt-6" Row="@(_currentBreakpoint > Breakpoint.Sm)" Reverse="@_reverse">
 
-            <MudButton Variant="Variant.Text"
+           @*  <MudButton Variant="Variant.Text"
                        Class="cv-button"
                        Style="@($"--cv-button-bg:{GradientService.CurrentTheme.Background}; --cv-button-shadow:{GradientService.CurrentTheme.Shadow};")"
                        Href="documents/AmidGiganteJr_Resume.pdf"
+                       Target="_blank" data-aos="fade-up"
+                       data-aos-duration="800"> *@
+            <MudButton Variant="Variant.Text"
+                       Class="cv-button"
+                       Style="@($"--cv-button-bg:{GradientService.CurrentTheme.Background}; --cv-button-shadow:{GradientService.CurrentTheme.Shadow};")"
+                       OnClick="ShowSnackbar"
                        Target="_blank" data-aos="fade-up"
                        data-aos-duration="800">
 
@@ -487,6 +493,11 @@
     private async Task Go(string id)
     {
         await NavigationService.ScrollTo(id);
+    }
+
+    private void ShowSnackbar()
+    {
+        Snackbar.Add("Under development. Feature will add soon.", Severity.Info);
     }
 
     private Task BreakpointChanged(Breakpoint breakpoint)
