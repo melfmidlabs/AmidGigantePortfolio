@@ -15,13 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\documents\AmidGiganteJr_Resume.pdf" />
     <None Include="wwwroot\images\profile.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="docs\" />
     <Folder Include="NewFolder\" />
+    <Folder Include="wwwroot\documents\" />
     <Folder Include="wwwroot\images\tech\" />
   </ItemGroup>
 
